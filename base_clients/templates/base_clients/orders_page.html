@@ -1,0 +1,42 @@
+{% extends "base_clients/base.html"%}
+{% block content %}
+<div class="container">
+<div class="row">
+    <div class="col-md-11 ml-3">
+            <h2 style="text-align: center; font-weight: bolder;">Order</h2>
+        <table class="table table-dark">
+            <thead>
+            <tr><th scopr="col"></th>
+                <th scope="col">produit</th>
+                <th scope="col">client</th>
+                <th scope="col">status</th>
+                <th scope="col">quantite</th>
+                <th scope="col">prix_total_HT</th>
+
+                <!-- <th scope="col">CODE POSTAL</th>
+                <th scope="col">VILLE</th>
+                <th scope="col">TELEPHONE</th>
+                <th scope="col">EMAIL</th> -->
+
+
+
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for Order in Order_list %}
+    
+            <tr>
+                <td><a class="btn btn-primary" href="%url 'update_order'%">Update</a><a class="btn btn-Danger" href="{% url 'delete_order'%}">Delete</a></td>
+                <td>{{Order.produit}}</td>
+                <td>{{Order.client}}</td>
+                <td>{{Order.statut_commande}}</td>
+                <td>{{Order.quantite}}</td>
+                <td>{{Order.prix_total_HT}}</td>            
+            </tr>
+            {% endfor %} 
+    
+            </tbody>
+</table>
+</div>
+{% endblock %}

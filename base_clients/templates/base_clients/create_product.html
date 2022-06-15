@@ -1,0 +1,11 @@
+{% extends "base_clients/base.html"%}
+{% block content %}
+<h1>Create Product</h1>
+<form method='POST'>
+    {% csrf_token %}
+    {{formulaire_creation_produit}}
+    <input type="submit" name="Submit" class="btn btn-primary">
+</form>
+
+
+{% endblock %}

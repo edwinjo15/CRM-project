@@ -1,0 +1,22 @@
+{% extends "base_clients/base.html"%}
+{% block content %}
+<h1>Create Client</h1>
+{% endblock %}
+if request.method == 'POST':
+        form = NameForm(request.POST)
+        if form.is_valid():
+            nom = request.POST.get("nom")
+            prenom = request.POST.get("prenom")
+            sexe = request.POST.get("sexe")
+            date_naissance = request.POST.get("date_naissance")
+            adresse = request.POST.get("adresse")
+            code_postal = request.POST.get("code_postal")
+            ville = request.POST.get("ville")
+            telephone = request.POST.get("telephone")
+            email = request.POST.get("email")
+        return redirect('/')
+    
+    else:
+        # Display the html form
+        form= NameForm()
+        return render(request, 'base_clients/create_customer.html', {'form': form})

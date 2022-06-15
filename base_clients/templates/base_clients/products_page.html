@@ -1,0 +1,39 @@
+{% extends "base_clients/base.html"%}
+{% block content %}
+<div class="row">
+    <div class="container">
+        <h2 style="text-align: center; font-weight: bolder;">PRODUCT LIST</h2>
+        <br>
+        <table class="table table-dark">
+            <thead>
+            <tr>
+                <th scope="col">NAME</th>
+                <th scope="col">DESCIPTION</th>
+                <th scope="col">QUANTITE</th>
+                <th scope="col">PRIX_UNITAIRE_HT</th>
+                <!-- <th scope="col">CODE POSTAL</th>
+                <th scope="col">VILLE</th>
+                <th scope="col">TELEPHONE</th>
+                <th scope="col">EMAIL</th> -->
+
+
+
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for Product in Product_list %}
+    
+            <tr>
+                <td>{{Product.nom}}</td>
+                <td>{{Product.desciption}}</td>
+                <td>{{Product.quantite_stock}}</td>
+                <td>{{Product.prix_unitaire_HT}}</td>
+            
+            </tr>
+            {% endfor %} 
+    
+            </tbody>
+</table>
+</div>
+{% endblock %}

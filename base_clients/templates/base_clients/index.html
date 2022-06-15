@@ -1,0 +1,67 @@
+{% extends "base_clients/base.html"%}
+{% block content %}
+<div class="row">
+    <div class="col-md-7 ml-3">
+            <h2 style="text-align: center; font-weight: bolder;">CLIENT LIST</h2>
+        <table class="table table-dark">
+            <thead>
+            <tr>
+                <th scope="col">NAME</th>
+                <th scope="col">PRENOM</th>
+                <th scope="col">SEX</th>
+                <th scope="col">DN</th>
+                <th scope="col">ADDRESS</th>
+                <!-- <th scope="col">CODE POSTAL</th>
+                <th scope="col">VILLE</th>
+                <th scope="col">TELEPHONE</th>
+                <th scope="col">EMAIL</th> -->
+
+
+
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for Client in Client_list %}
+    
+            <tr>
+                <td>{{Client.nom}}</td>
+                <td>{{Client.prenom}}</td>
+                <td>{{Client.sexe}}</td>
+                <td>{{Client.date_naissance}}</td>
+                <td>{{Client.adresse}}</td>
+            
+            </tr>
+            {% endfor %} 
+    
+            </tbody>
+</table>
+</div><br><br>
+<div class="col-md-4 ml-auto">
+    <button type="button" class="btn btn-primary btn-block">Latest Order</button>
+    <div class="text-center justify-content-md-center mt-3">
+
+        <table class="table table-dark">
+            <thead>
+            <tr><th scope="col"></th>
+                <th scope="col">produit</th>
+                <th scope="col">client</th>
+                <th scope="col">status</th>
+                <th scope="col">quantite</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for Order in Order_list %}
+            <tr>
+                <td><a class="btn btn-primary" href="%url 'update_order'%">Update</a><a class="btn btn-Danger" href="{% url 'delete_order'%}">Delete</a></td>
+                <td>{{Order.produit}}</td>
+                <td>{{Order.client}}</td>
+                <td>{{Order.statut_commande}}</td>
+                <td>{{Order.quantite}}</td>            
+            </tr>
+            {% endfor %} 
+    
+            </tbody>
+</table>
+</div>
+{% endblock %}
